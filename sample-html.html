@@ -1,0 +1,36 @@
+
+<nav class="navbar navbar-default">
+	<div class="container">			    
+
+		<div class="navbar-header">
+			<!-- This is the hamburger menu  -->
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<!-- This is the brand logo that links back to the home page of your WP Website -->
+			<a href="<?php echo get_site_url(); ?>" class="navbar-brand" href="#">
+				<img src="<!--  linktoimage  -->" title="" alt="">
+			</a>
+		</div>	    	
+
+
+		<?php
+		//This is the function that calls the menu and wraps it all in our custom walker. 
+			wp_nav_menu( array(
+				'menu'              => '',
+				'theme_location'    => '',
+				'depth'             => 2,
+				'container'         => 'div',
+				'container_class'   => 'collapse navbar-collapse',
+				'container_id'      => 'bs-example-navbar-collapse-1',
+				'menu_class'        => 'nav navbar-nav pull-right',
+				'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+				'walker'            => new wp_bootstrap_navwalker())
+			);
+		?>	  
+	</div>
+</nav>
